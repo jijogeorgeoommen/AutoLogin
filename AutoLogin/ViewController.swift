@@ -8,13 +8,59 @@
 
 import UIKit
 
+let obj = UserDefaults.standard
+
 class ViewController: UIViewController {
+    
+   
+
+    @IBOutlet var usernameoutlet: UITextField!
+    @IBOutlet var passwordoutlet: UITextField!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+     obj.set( "aa", forKey: "name")
+        obj.set( "aa", forKey: "password")
+        
     }
 
-
+    @IBAction func signiAction(_ sender: Any) {
+        
+        
+        
+        let regname = obj.value(forKey: "name") as! String
+        let regpass = obj.value(forKey: "password") as! String
+        
+        if ( usernameoutlet.text == regname &&  passwordoutlet.text == regpass) {
+            
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomePageid") as! HomePage
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+            usernameoutlet.text = ""
+            passwordoutlet.text = ""
+            
+        }
+            
+            else if (usernameoutlet.text != regname && passwordoutlet.text != regpass)
+        {
+            print("invalid user")
+        }
+            
+        else if (usernameoutlet.text == "" && passwordoutlet.text == ""){
+            
+            print("Empty Fields")
+            
+        }
+        
+        else {
+            print("invalid user")
+        }
+        
+        
+    }
+    
 }
 

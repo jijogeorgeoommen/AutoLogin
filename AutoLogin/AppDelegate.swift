@@ -16,7 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        if obj.object(forKey: "name") != nil && obj.object(forKey: "password") != nil {
+            sethomevc()
+        }
+        
+        else {
+            print("nil value")
+        }
+        
+        
         return true
     }
 
@@ -87,6 +96,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    
+    
+    func sethomevc(){
+        let mainstoryboard : UIStoryboard = UIStoryboard(name:"Main", bundle: nil)
+        let homevc = mainstoryboard.instantiateViewController(withIdentifier: "HomePageid")as! HomePage
+        let mainNavvc : UINavigationController = UINavigationController(rootViewController: homevc)
+        (UIApplication.shared.delegate as! AppDelegate).window?.rootViewController = mainNavvc
+        
+        
+        
     }
 
 }
