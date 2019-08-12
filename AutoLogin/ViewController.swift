@@ -64,3 +64,4 @@ class ViewController: UIViewController {
     
 }
 
+// ref AppDelegate for login checking condition
