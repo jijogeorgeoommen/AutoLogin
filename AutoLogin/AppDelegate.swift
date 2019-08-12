@@ -102,6 +102,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func sethomevc(){
         let mainstoryboard : UIStoryboard = UIStoryboard(name:"Main", bundle: nil)
+        //"Main" mentioned here is the 'Main.storyboard in project navigator 
         let homevc = mainstoryboard.instantiateViewController(withIdentifier: "HomePageid")as! HomePage
         let mainNavvc : UINavigationController = UINavigationController(rootViewController: homevc)
         (UIApplication.shared.delegate as! AppDelegate).window?.rootViewController = mainNavvc
